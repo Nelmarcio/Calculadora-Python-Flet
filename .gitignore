@@ -5,6 +5,31 @@ __pycache__/
 *.pyo
 *.so
 
+# Caches/linters/testes
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+coverage.xml
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+
+# Empacotamento
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# Logs/temporários
+*.tmp
+*.temp
+*.swp
+*.log
+
 # Virtual envs
 .venv/
 venv/
@@ -19,12 +44,17 @@ ENV/
 *.toc
 *.pyz
 *.pkg
-*.log
 *.warn
 *.html
 
 # Inno Setup output
 /installer/installer_output/
+
+# Inno Setup / instaladores (saídas comuns)
+/installer/Output/
+/installer/output/
+*.exe
+*.msi
 
 # VS Code
 .vscode/
