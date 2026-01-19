@@ -127,3 +127,8 @@ Ferramenta: `signtool.exe` (Windows SDK).
 - `CalculadoraFlet.spec`: build PyInstaller (onedir)
 - `installer/CalculadoraFlet.iss`: instalador Inno Setup
 - `scripts/`: scripts de build/clean
+
+## Créditos
+
+- Autor do projeto: você (dono do repositório).
+- Assistência: mudanças e ajustes feitos com auxílio do GitHub Copilot (IA, modelo GPT-5.2), sempre sob sua orientação/revisão.
