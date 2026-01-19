@@ -32,7 +32,7 @@ pyinstaller --noconfirm --clean CalculadoraFlet.spec
 Ou usando o script:
 
 ```powershell
-.\.scripts\build_portable.ps1
+.\scripts\build_portable.ps1
 ```
 
 ## Gerar instalador (Inno Setup)
@@ -43,21 +43,32 @@ Ou usando o script:
 
 - coloque um arquivo `.ico` em `installer\app.ico`
 
+Ou gere automaticamente um ícone de calculadora (PNG+ICO):
+
+```powershell
+python .\scripts\generate_app_icon.py
+```
+
+Arquivos gerados:
+
+- `assets\app.ico` (ícone do app/PyInstaller)
+- `installer\app.ico` (ícone do instalador)
+
 3. Gere o instalador:
 
 ```powershell
-.\.scripts\build_installer.ps1 -Publisher "Sua Empresa" -Version "1.0.0"
+.\scripts\build_installer.ps1 -Publisher "Sua Empresa" -Version "1.0.0"
 ```
 
 Se o Inno Setup estiver instalado por usuário (ex.: `AppData`), você pode passar o caminho do `ISCC.exe`:
 
 ```powershell
-.\.scripts\build_installer.ps1 -Publisher "Sua Empresa" -Version "1.0.0" -IsccPath "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe"
+.\scripts\build_installer.ps1 -Publisher "Sua Empresa" -Version "1.0.0" -IsccPath "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe"
 ```
 
 Saída:
 
-- `installer_output\Instalador_Calculadora Flet_vX.Y.Z.exe`
+- `installer\installer_output\Instalador_Calculadora Flet_vX.Y.Z.exe`
 
 O instalador:
 
@@ -86,14 +97,14 @@ pyinstaller --noconfirm --clean CalculadoraFlet.spec
 
 6. Clique em **Compile**.
 
-Saída: `installer_output\Instalador_Calculadora Flet_vX.Y.Z.exe`
+Saída: `installer\installer_output\Instalador_Calculadora Flet_vX.Y.Z.exe`
 
 ## Limpar artefatos gerados
 
 Remove `build/`, `dist/` e `installer/installer_output/`.
 
 ```powershell
-.\.scripts\clean.ps1
+.\scripts\clean.ps1
 ```
 
 ## Scripts

@@ -2,7 +2,7 @@ param(
   [string]$ProjectRoot = (Resolve-Path "$PSScriptRoot\.."),
   [string]$SpecFile = "CalculadoraFlet.spec",
   [string]$IssFile = "installer\CalculadoraFlet.iss",
-  [string]$Publisher = "Minha Empresa",
+  [string]$Publisher = "Meu Primeiro App",
   [string]$Version = "1.0.0",
   [string]$IsccPath = ""
 )
@@ -25,7 +25,9 @@ function Resolve-IsccPath {
     "${env:ProgramFiles}\Inno Setup 6\ISCC.exe",
     "${env:ProgramFiles(x86)}\Inno Setup 5\ISCC.exe",
     "${env:ProgramFiles}\Inno Setup 5\ISCC.exe"
-  ) | Where-Object { $_ -and (Test-Path $_) }
+  )
+
+  $candidates = @($candidates | Where-Object { $_ -and (Test-Path $_) })
 
   if ($candidates.Count -gt 0) { return $candidates[0] }
 
@@ -70,4 +72,4 @@ Write-Host "Usando: $isccPath" -ForegroundColor DarkGray
 Write-Host "Compilando instalador: $IssFile" -ForegroundColor Cyan
 & $isccPath "/DMyAppPublisher=$Publisher" "/DMyAppVersion=$Version" "$IssFile"
 
-Write-Host "OK: instalador gerado em installer_output\\" -ForegroundColor Green
+Write-Host "OK: instalador gerado em installer\\installer_output\\" -ForegroundColor Green

@@ -3,6 +3,7 @@ import math
 import sys
 import logging
 from io import StringIO
+from pathlib import Path
 
 # Redirecionar stdout/stderr para evitar erros de logging quando rodando como .exe
 if sys.stdout is None:
@@ -22,6 +23,11 @@ def main(page: ft.Page):
     page.title = "Calculadora Flet"
     page.padding = 1
     page.bgcolor = "#000000"
+
+    # Ícone da janela (desktop). Não falha se a propriedade não existir.
+    assets_icon = Path(__file__).with_name("assets") / "app.ico"
+    if assets_icon.exists() and hasattr(page.window, "icon"):
+        page.window.icon = str(assets_icon)
 
     # Estado da calculadora
     display_value = ["0"]

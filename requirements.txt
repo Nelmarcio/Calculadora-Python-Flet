@@ -43,6 +43,7 @@ numpy==2.4.0
 oauthlib==3.3.1
 packaging==25.0
 pefile==2024.8.26
+Pillow>=10.0.0
 pycparser==2.23
 pydantic==2.12.5
 pydantic_core==2.41.5
